@@ -7,7 +7,6 @@ const initialState: GitHubReducerState = {
     entityType: 'repositories',
     page: 1,
     per_page: 5,
-    hasMore: true,
 
 }
 const gitHub = (state = initialState, action: { type: string, payload: GitHubReducerState }) => {
