@@ -38,3 +38,28 @@
 - **React Infinite Scroll Component**: Chose to use this library for pagination as it provides a simple way to implement infinite scrolling, eliminating the need for traditional pagination with page numbers.
 - **Axios Request Function**: Created a reusable axios request function to simplify making API requests. This allows for consistent error handling, cleaner code, and easy maintenance when making requests to different APIs.
 - **Utils Folder**: Created a utils folder to store utility functions that can be shared across components. The string truncation function was placed in this folder to keep the codebase organized and modular.
+
+## Instructions
+
+- To clone the App` git clone https://github.com/MohammedSwaaf/Github-Task.git`
+- To install the dependinces `npm install`
+- To run the app `npm start`
+
+## Clone the app
+```bash
+git clone https://github.com/MohammedSwaaf/Github-Task.git
+```
+
+## Installation
+
+```bash
+npm install
+```
+
+## Running the app
+
+```bash
+npm start
+
+### Note
+Please make sure you are using the last version of node
