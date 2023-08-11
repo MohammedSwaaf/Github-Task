@@ -31,8 +31,8 @@ const SearchForm: React.FC = () => {
         per_page: per_page,
       },
     }).then((res) => {     
-      setItemLength(res.data?.items.lenght)
-      const newItems = page > 1 ? allData?.concat(res.data?.items) : res.data?.items;
+      setItemLength(res?.data?.items.lenght)
+      const newItems = page > 1 ? allData?.concat(res?.data?.items) : res?.data?.items;
       dispatch<any>(updateGithubStoreAction({ allData: newItems || [], page }));
       setLoading(false);
     }).catch((err: any) => {
