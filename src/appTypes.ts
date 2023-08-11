@@ -5,7 +5,6 @@ export type Filter = {
     entityType: GitHubEntities,
     page: number,
     per_page: number,
-    hasMore: boolean,
 }
 export interface ISearchViewRepo {
 
