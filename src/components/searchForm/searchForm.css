@@ -1,0 +1,84 @@
+.header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /* margin: 2.5em 9.5em; */
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.headerOnCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header .head {
+    display: flex;
+    align-items: center;
+}
+
+.header .head .avatar {
+    width: 3em;
+    height: 3em;
+}
+
+.header .head .subtitle {
+    margin-left: 0.7em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    line-height: 15px;
+}
+
+.header .head .subtitle .label {
+    font-weight: 400;
+    color: #878787c9;
+}
+
+.header .searchSection {
+    padding: 0.7em 0;
+
+    /* margin: 0 auto;
+    width: 100%; */
+    ::placeholder {
+        color: #a1a1a1bd;
+    }
+}
+
+/*Search section */
+.header .searchSection .searchInput {
+    padding: 0.8em;
+    width: 23em;
+    border: 1px solid #ddd;
+    outline: none;
+
+}
+
+.header .searchSection .searchSelect {
+    margin-left: 1em;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    outline: none;
+    color: #a1a1a1bd;
+}
+.error{
+    color: #c40c0c;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+@media (min-width: 768) and (max-width: 1200){
+    .header .content {
+        margin: 1em 10em;
+    }
+}
+@media (max-width: 600px) {
+    .header .searchSection .searchSelect {
+        margin: 5px 0;
+    }
+    .error{
+       font-size: 12px;
+    }
+}
