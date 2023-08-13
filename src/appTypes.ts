@@ -1,4 +1,11 @@
 
+export interface ErrorResponse {
+    response?: {
+      data: {
+        message: string;
+      };
+    };
+  }
 export type GitHubEntities = 'repositories' | 'users'
 export type Filter = {
     searchTerm: string,

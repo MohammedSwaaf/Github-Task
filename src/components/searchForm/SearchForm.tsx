@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { debounce } from 'lodash';
 import { request } from '../../service/axiosRequest';
@@ -19,6 +19,11 @@ const SearchForm: React.FC = () => {
   //read all states from the store 
   const { allData, page, searchTerm, entityType, per_page } = useSelector<RootState>((state) => state.gitHubReducer) as GitHubReducerState;
 
+  useEffect(() => {
+    searchTerm.length < 3 && dispatch<any>(updateGithubStoreAction({ searchTerm: '', page: 1, allData: [] }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const fetchData = async function (searchTerm: string, entityType: GitHubEntities, page: number) {
 
     setLoading(true);
@@ -30,7 +35,7 @@ const SearchForm: React.FC = () => {
         page: page,
         per_page: per_page,
       },
-    }).then((res) => {     
+    }).then((res) => {
       setItemLength(res?.data?.items.lenght)
       const newItems = page > 1 ? allData?.concat(res?.data?.items) : res?.data?.items;
       dispatch<any>(updateGithubStoreAction({ allData: newItems || [], page }));
@@ -61,7 +66,7 @@ const SearchForm: React.FC = () => {
     const { value } = event.target as { value: GitHubEntities };
     dispatch<any>(updateGithubStoreAction({ entityType: value, page: 1, allData: [] }));
     setError(null)
-    searchTerm.length >= 3 && fetchData(searchTerm, value, page)
+    searchTerm.length >= 3 && fetchData(searchTerm, value, 1)
 
   };
 
@@ -72,7 +77,7 @@ const SearchForm: React.FC = () => {
 
   return (
     <div>
-      <div className="header" style={searchTerm.length >= 3 ? { display: 'block' } : { display: 'flex', margin: `16em auto 0 auto` }}>
+      <div className="header" style={searchTerm.length !== 0 ? { display: 'block' } : { display: 'flex', margin: `16em auto 0 auto` }}>
         <div className='content'>
           <div className="head">
             <img className="avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png" alt="GitHub Logo" />

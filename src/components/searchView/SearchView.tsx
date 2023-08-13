@@ -4,21 +4,22 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { RootState } from '../../redux/store';
 import UsersView from './UsersView';
 import ReposView from './ReposView';
-import { GitHubEntities } from '../../appTypes';
+import { GitHubEntities, GitHubReducerState } from '../../appTypes';
 
 interface Props {
     searchType: GitHubEntities,
     hasMore: boolean,
-    loadMore: any
+    loadMore: () => void;
 }
 
 export default function SearchView(props: Props) {
-    const getHubDataSelector: any = useSelector<RootState>(state => state.gitHubReducer.allData);
+    const { allData } = useSelector<RootState>(state => state.gitHubReducer) as GitHubReducerState;
+
     return (
         <>
             <div className="container">
                 <InfiniteScroll
-                    dataLength={getHubDataSelector.length}
+                    dataLength={allData.length}
                     next={props.loadMore}
                     hasMore={props.hasMore}
                     loader={<span>{''}</span>}

@@ -1,18 +1,17 @@
 import { useSelector } from 'react-redux';
 import { truncString } from '../../utils/stringTrunc'
 import { RootState } from '../../redux/store';
-import { ISearchViewRepo } from '../../appTypes';
+import { GitHubReducerState, ISearchViewRepo } from '../../appTypes';
 
 
 
 export default function ReposView() {
-    const getHubDataSelector: any = useSelector<RootState>(state => state.gitHubReducer.allData);
+    const { allData } = useSelector<RootState>(state => state.gitHubReducer) as GitHubReducerState;
 
     return (
         <>
             <div className="row">
-                {Array.isArray(getHubDataSelector) && getHubDataSelector.map((repo: ISearchViewRepo, key: number) => {
-                    console.log("🚀 ~ file: ReposView.tsx:15 ~ {Array.isArray ~ getHubDataSelector:", getHubDataSelector)
+                {Array.isArray(allData) && allData.map((repo: ISearchViewRepo, key: number) => {
                     return <div className="col-md-4" key={key}>
                         <div className="card">
                             <div className="card-header">
