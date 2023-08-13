@@ -1,11 +1,9 @@
 
-export interface ErrorResponse {
-    response?: {
-      data: {
-        message: string;
-      };
-    };
-  }
+export interface ISreachView {
+    searchType: GitHubEntities,
+    hasMore: boolean,
+    loadMore: () => void;
+}
 export type GitHubEntities = 'repositories' | 'users'
 export type Filter = {
     searchTerm: string,
