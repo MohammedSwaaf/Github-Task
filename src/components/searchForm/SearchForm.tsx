@@ -55,7 +55,7 @@ const SearchForm: React.FC = () => {
   const debouncedFetchData = debounce(fetchData, 300)
   const handleSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    if (!value) return dispatch<any>(updateGithubStoreAction({ searchTerm: '', page: 1, allData: [] }))
+    // if (!value) return dispatch<any>(updateGithubStoreAction({ searchTerm: '', page: 1, allData: [] }))
     dispatch<any>(updateGithubStoreAction({ searchTerm: value, page: 1 }))
     setError(null)
     if (value.length < 3) return
