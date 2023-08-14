@@ -11,7 +11,7 @@ export const request = ({
     method,
     params,
     headers: {
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer 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`,
       ...headers,
     },
   };
